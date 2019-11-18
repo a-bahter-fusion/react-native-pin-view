@@ -1,5 +1,5 @@
 import React from "react"
-import { Animated, FlatList, Text, TouchableOpacity, I18nManager } from "react-native"
+import { Animated, FlatList, Text, View, TouchableOpacity, I18nManager } from "react-native"
 
 const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle, pinLength, onComplete, bgColor, returnType, textColor, animatedDeleteButton, deleteText, animatedDeleteButtonOnPress, styles, onPress, buttonDeletePosition, buttonDeleteStyle, buttonActiveOpacity }) => {
   let data = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
@@ -47,29 +47,49 @@ const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyl
       onPressInactive = false
       style = [styles[0]]
     }
+
+    const styleRenderItem = {
+      borderLeftWidth: 2,
+      borderRightWidth: 2,
+      borderColor: '#dde2e6',
+    }
+
     return (
       <TouchableOpacity
         key={"key-item-" + index}
         activeOpacity={buttonActiveOpacity}
         onPress={onPressKeyboard}
-        disabled={onPressInactive}>
+        disabled={onPressInactive}
+        style={[2,5,8,11].includes(index+1) && styleRenderItem}>
         <Animated.View style={[style, {
           backgroundColor: bgColor,
         }, ViewStyles]}>
           <Text style={[styles[1], {
             color: textColor,
             opacity: 1,
-          }, keyboardViewTextStyle]}>{item}</Text>
+          },
+            keyboardViewTextStyle]}>{item}</Text>
         </Animated.View>
       </TouchableOpacity>
     )
   }
+
+  const renderSeparator = () => (
+    <View
+      style={{
+        backgroundColor: '#dde2e6',
+        height: 1,
+      }}
+    />
+  );
+
   return (
     <FlatList
       contentContainerStyle={{
         flexDirection: I18nManager.isRTL ? "column-reverse" : "column",
         alignItems: I18nManager.isRTL ? "flex-end" : "flex-start",
       }}
+      ItemSeparatorComponent={renderSeparator}
       scrollEnabled={false}
       horizontal={false}
       vertical={true}
