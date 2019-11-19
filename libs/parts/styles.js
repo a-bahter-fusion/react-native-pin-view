@@ -6,18 +6,12 @@ export default StyleSheet.create({
   passwordInputViewItem: {
     alignItems: "center",
     justifyContent: "center",
-    height: 35,
     margin: 5,
-    width: 35,
-    borderRadius: 35 / 2,
   },
   passwordInputViewItemActive: {
     alignItems: "center",
     justifyContent: "center",
-    height: 35,
-    width: 35,
     margin: 5,
-    borderRadius: 35 / 2,
   },
   // KeyboardView
   keyboardView: {
@@ -34,6 +28,10 @@ export default StyleSheet.create({
   },
   keyboardViewItemText: {
     fontSize: 22,
-    fontWeight: "900",
+  },
+  hrBeforeKeywords: {
+    height: 1,
+    width: '200%',
+    backgroundColor: '#DBE0E5',
   },
 })

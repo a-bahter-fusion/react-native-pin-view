@@ -122,7 +122,9 @@ class PinView extends React.Component {
           bgColor={inputBgColor}
           styles={[Styles.passwordInputView, Styles.passwordInputViewItem, Styles.passwordInputViewItemActive]}
         />
+
         <View style={[Styles.keyboardView, keyboardContainerStyle]}>
+          <View style={Styles.hrBeforeKeywords}/>
           <KeyboardView
             keyboardViewStyle={keyboardViewStyle}
             keyboardViewTextStyle={keyboardViewTextStyle}
@@ -150,11 +152,11 @@ class PinView extends React.Component {
 PinView.defaultProps = {
   deleteText: "DEL",
   buttonBgColor: "#FFF",
-  buttonTextColor: "#333",
-  inputBgColor: "#333",
-  inputActiveBgColor: "#333",
+  buttonTextColor: "#000",
+  inputBgColor: "#fff",
+  inputActiveBgColor: "#000",
   returnType: "string",
-  inputBgOpacity: 0.1,
+  inputBgOpacity: 1,
   disabled: false,
   clear: false,
   delayBeforeOnComplete: 175,

@@ -49,8 +49,8 @@ const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyl
     }
 
     const styleRenderItem = {
-      borderLeftWidth: 2,
-      borderRightWidth: 2,
+      borderLeftWidth: 1,
+      borderRightWidth: 1,
       borderColor: '#dde2e6',
     }
 
