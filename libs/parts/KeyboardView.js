@@ -3,7 +3,7 @@ import Icon from 'react-native-vector-icons/Feather';
 
 import { Animated, FlatList, Text, View, TouchableOpacity, I18nManager } from "react-native"
 
-const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle, pinLength, onComplete, bgColor, returnType, textColor, animatedDeleteButton, deleteText, animatedDeleteButtonOnPress, styles, onPress, buttonDeletePosition, buttonDeleteStyle, buttonActiveOpacity, iconDeleteButton }) => {
+const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyle, pinLength, onComplete, bgColor, returnType, textColor, animatedDeleteButton, deleteText, animatedDeleteButtonOnPress, styles, onPress, buttonDeletePosition, buttonDeleteStyle, buttonActiveOpacity, hideDeleteButton }) => {
   let data = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
   const leftButtonDeletePositions = [deleteText, "0", "empty"]
   const rightButtonDeletePositions = ["empty", "0", deleteText]
@@ -55,7 +55,6 @@ const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyl
       borderRightWidth: 1,
       borderColor: '#dde2e6',
     }
-    console.log("-------ITEM-------", item)
     return (
       <TouchableOpacity
         key={"key-item-" + index}
@@ -70,7 +69,7 @@ const KeyboardView = ({ keyboardOnPress, keyboardViewStyle, keyboardViewTextStyl
             color: textColor,
             opacity: 1,
           },
-            keyboardViewTextStyle]}>{item === 'DEL' ? <Icon name="delete" size={30} color="#000" />  : item }
+            keyboardViewTextStyle]}>{item === 'DEL' ? !hideDeleteButton && <Icon name="delete" style={ViewStyles} />  : item }
           </Text>
         </Animated.View>
       </TouchableOpacity>
